@@ -3,22 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Header with Logo and Navbar</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style1.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css')}}">
+    <title>Plant Identification</title>
 </head>
 <body>
     <header>
-        <div id="logo-container">
-            <a href="#" id="home-link">
-                <img src="{{url_for('static', filename='img/img2.png')}}" alt="Logo" id="logo">
-                <span id="logo-name">Home</span>
-            </a>
+        <div class="logo">
+            <a href="#">
+            <img src="{{url_for('static', filename='img/img2.png')}}" alt="Company Logo" id="logo"> 
+            <span id="logo-name">AGRI FORM</span>
+        </a>
+        
         </div>
         <nav>
             <ul>
-                <li><a href="#">Our Courses</a></li>
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="#">Projects</a></li>
+                {% for item in items %}
+                <li><a href={{item.url}}>{{item}}</a></li>
+                    {% endfor %}
             </ul>
         </nav>
     </header>
@@ -69,5 +70,8 @@
         </div>
     </section>
 
+    <footer>
+        <p>&copy; 2024 Plant ID. All rights reserved.</p>
+    </footer>
 </body>
 </html>

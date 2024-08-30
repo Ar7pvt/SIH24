@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style3.css')}}">
+    <title>Plant Identification</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="#">
+                <img src="{{url_for('static', filename='img/img2.png')}}" alt="Company Logo" id="logo"> 
+                <span id="logo-name">AGRI FORM</span>
+            </a>
+        </div>
+        <nav>
+            <ul>
+                {% for item in items %}
+                <li><a href={{item.url}}>{{item}}</a></li>
+                {% endfor %}
+            </ul>gi
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>AGRI FORM</h1>
+            <p>Description</p>
+            <button class="explore-button">Read more</button>
+        </div>
+    </section>
+   
+    <footer>
+        <p>&copy; 2024 Plant ID. All rights reserved.</p>
+    </footer>
+</body>
+</html>
