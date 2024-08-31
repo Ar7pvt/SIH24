@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/home.css')}}">
+    <link href="https://fonts.cdnfonts.com/css/the-amsterdam" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sevillana&display=swap" rel="stylesheet">
+    <title>Kheti.Ai</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="#" id="logo-name">Kheti.Ai</a>
+        </div> 
+        <nav>
+            <ul>
+                {% for key, value in navbarItems.items() %}
+                <li><a href="{{value.url}}">{{key}}</a></li>
+                {% endfor %}
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Smart Farming Starts Here</h1>
+            <p>Maximize your harvest with our state-of-the-art crop disease detection software. By identifying potential threats early, you can take swift action to protect your crops and ensure a healthier, more bountiful yield. Our technology empowers you to minimize risks and make data-driven decisions, so you can focus on growing your farm's success. Invest in precision, and watch your harvest thrive.</p>
+            <button class="explore-button">read more</button>
+        </div>
+    </section>
+
+
+    <!-- upload Section -->
+
+    <section class="upload-section">
+        <div class="upload-container">
+            <h3>Upload and Attach Files</h3>
+            <p>Upload and attach files to this project.</p>
+            <div class="upload-box">
+                <img src="{{url_for('static', filename='img/icon/Black/cloud-computing.png')}}" alt="cloud logo">
+                <input type="file" id="file-upload" multiple>
+                <label for="file-upload">Click to upload or drag and drop</label>
+                <div class="upload-info">
+                    <span>Maximum file size 50 MB.</span>
+                </div>
+            </div>            
+            <div class="buttons">
+                <button class="cancel-button">Cancel</button>
+                <button class="attach-button">Attach files</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section logo">
+                <img src="{{url_for('static', filename='img/logo/3.png')}}" alt="Logo" id="footer-logo">
+                
+            </div>
+            <div class="footer-section organization">
+                <h4>Organization</h4>
+                <ul>
+                    {% for item in footerOrganizationItems %}
+                    <li><a href={{item.url}}>{{item}}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="footer-section resources">
+                <h4>Resources</h4>
+                <ul>
+                    {% for item in footerResourcesItems %}
+                    <li><a href={{item.url}}>{{item}}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="footer-section legal">
+                <h4>Legal</h4>
+                <ul>
+                    {% for item in footerLegalItems %}
+                    <li><a href={{item.url}}>{{item}}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="footer-section contact">
+                <h4>Contact us</h4>
+                <ul>
+                    {% for item in footerContactUsItems %}
+                    <li><a href={{item.url}}>{{item}}</a></li>
+                    {% endfor %}
+                </ul>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/"><img src="{{url_for('static', filename='img/icon/Black/facebook-icon.png')}}" alt="Facebook"></a>
+                    <a href="https://www.instagram.com/accounts/login/"><img src="{{url_for('static', filename='img/icon/Black/instagram-icon.png')}}" alt="Instagram"></a>
+                    <a href="https://web.telegram.org/a/"><img src="{{url_for('static', filename='img/icon/Black/telegram-icon.png')}}" alt="Telegram"></a>
+                    <a href="https://x.com/login?mx=2"><img src="{{url_for('static', filename='img/icon/Black/twitter-icon.png')}}" alt="Twitter"></a>
+                    <a href="https://web.whatsapp.com/"><img src="{{url_for('static', filename='img/icon/Black/whatsapp-icon.png')}}" alt="Whatsapp"></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2014-2024 Kheti.Ai™</p>
+        </div>
+    </footer>
+    
+</body>
+
+<script>
+    // Enable the Attach button only if files are selected
+    document.getElementById('file-upload').addEventListener('change', function() {
+        document.querySelector('.attach-button').disabled = !this.files.length;
+    });
+
+    // Optional: Confirm before canceling the upload
+    document.querySelector('.cancel-button').addEventListener('click', function(e) {
+        if (!confirm("Are you sure you want to cancel?")) {
+            e.preventDefault();
+        }
+    });
+</script>
+
+</html>
