@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/about.css')}}">
+    <link href="https://fonts.cdnfonts.com/css/the-amsterdam" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sevillana&display=swap" rel="stylesheet">
+    <title>About</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="#" id="logo-name">Kheti.Ai</a>
+        </div> 
+        <nav>
+            <ul>
+                {% for key, value in navbarItems.items() %}
+                <li><a href="{{value.url}}">{{key}}</a></li>
+                {% endfor %}
+            </ul>
+        </nav>
+    </header>
+
+ <!--About section-->
+
+ <section class="about-section">
+    <div class="about-container">
+        <div class="about-box">
+            <img src="{{url_for('static', filename='img/about/mission.jpg')}}" alt="Team Meeting">
+            <div class="text-content">
+                <h2>Our Story</h2>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+        </div>
+        <div class="about-box">
+            <img src="{{url_for('static', filename='img/about/gola.jpg')}}" alt="Hands Together">
+            <div class="text-content">
+                <h2>Our Mission</h2>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+        </div>
+        <div class="about-box">
+            <img src="{{url_for('static', filename='img/about/we-are.jpg')}}" alt="People Working Together">
+            <div class="text-content">
+                <h2>Who We Are</h2>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+        </div>
+    </div>
+</section>
+ 
+ <!--footer section-->
+ <footer>
+        <div class="footer-container">
+            <div class="footer-section logo">
+                <img src="{{url_for('static', filename='img/logo/3.png')}}" alt="Logo" id="footer-logo">
+                
+            </div>
+            <div class="footer-section organization">
+                <h4>Organization</h4>
+                <ul>
+                    {% for item in footerOrganizationItems %}
+                    <li><a href={{item.url}}>{{item}}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="footer-section resources">
+                <h4>Resources</h4>
+                <ul>
+                    {% for item in footerResourcesItems %}
+                    <li><a href={{item.url}}>{{item}}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="footer-section legal">
+                <h4>Legal</h4>
+                <ul>
+                    {% for item in footerLegalItems %}
+                    <li><a href={{item.url}}>{{item}}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="footer-section contact">
+                <h4>Contact us</h4>
+                <ul>
+                    {% for item in footerContactUsItems %}
+                    <li><a href={{item.url}}>{{item}}</a></li>
+                    {% endfor %}
+                </ul>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/"><img src="{{url_for('static', filename='img/icon/Black/facebook-icon.png')}}" alt="Facebook"></a>
+                    <a href="https://www.instagram.com/accounts/login/"><img src="{{url_for('static', filename='img/icon/Black/instagram-icon.png')}}" alt="Instagram"></a>
+                    <a href="https://web.telegram.org/a/"><img src="{{url_for('static', filename='img/icon/Black/telegram-icon.png')}}" alt="Telegram"></a>
+                    <a href="https://x.com/login?mx=2"><img src="{{url_for('static', filename='img/icon/Black/twitter-icon.png')}}" alt="Twitter"></a>
+                    <a href="https://web.whatsapp.com/"><img src="{{url_for('static', filename='img/icon/Black/whatsapp-icon.png')}}" alt="Whatsapp"></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2014-2024 Kheti.Ai™</p>
+        </div>
+    </footer>
+    
+</body>
+
+<script>
+    // Enable the Attach button only if files are selected
+    document.getElementById('file-upload').addEventListener('change', function() {
+        document.querySelector('.attach-button').disabled = !this.files.length;
+    });
+
+    // Optional: Confirm before canceling the upload
+    document.querySelector('.cancel-button').addEventListener('click', function(e) {
+        if (!confirm("Are you sure you want to cancel?")) {
+            e.preventDefault();
+        }
+    });
+</script>
+
+</html>
