@@ -1,0 +1,394 @@
+@keyframes moveBorder {
+    0% {
+        border-top: 3px dashed black;
+        border-right: 3px dashed transparent;
+        border-bottom: 3px dashed transparent;
+        border-left: 3px dashed transparent;
+    }
+    25% {
+        border-top: 3px dashed black;
+        border-right: 3px dashed black;
+        border-bottom: 3px dashed transparent;
+        border-left: 3px dashed transparent;
+    }
+    50% {
+        border-top: 3px dashed transparent;
+        border-right: 3px dashed black;
+        border-bottom: 3px dashed black;
+        border-left: 3px dashed transparent;
+    }
+    75% {
+        border-top: 3px dashed transparent;
+        border-right: 3px dashed transparent;
+        border-bottom: 3px dashed black;
+        border-left: 3px dashed black;
+    }
+    100% {
+        border-top: 3px dashed black;
+        border-right: 3px dashed transparent;
+        border-bottom: 3px dashed transparent;
+        border-left: 3px dashed black;
+    }
+} 
+
+.upload-box{ 
+    /* position: absolute; */
+     border: 2px solid transparent;
+     box-sizing: border-box; 
+     animation: moveBorder 4s linear infinite;
+ }
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #193330;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #193330;
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    position: relative;
+    justify-content: flex-start;
+    z-index: 10;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+#logo {
+    width: 55px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+#logo-name {
+    font-family: 'The Amsterdam', sans-serif;
+    margin-left: 10px;
+    font-size: 34px;
+    /* font-weight: bold; */
+    color: #c1d72e;
+    text-decoration: none;
+}
+#logo-name:hover{
+    color: #fff;
+}
+a {text-decoration: none; }
+
+nav {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: 10px;
+    width: 100%;
+    z-index: 5;
+}
+
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 6px 35px;
+    display: inline-flex;
+    gap: 40px;
+    background-color: #0a1413;
+    border-radius: 50px;
+    height: 60px;
+    align-items: center;
+    /* box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset, rgba(0, 0, 0, 0.9) 0px 0px 0px 1px; */
+    /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+    box-shadow: #475c59 0px 1px 1px, #475c59 0px 0px 1px 1px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: lightgray;
+}
+
+.hero {
+    /* background: url('{{url_for('static', filename='img/background.png')}}') no-repeat center center/cover; */
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #e8ebea;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero h1 {
+    font-size: 4.1rem;
+    /* font-family: "Sevillana", cursive; */
+    font-family: "Libre Baskerville", serif;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1rem;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.explore-button {
+    padding: 10px 20px;
+    font-size: 1.4rem;
+    font-family: "Sevillana", cursive;
+    color: #fff;
+    background-color: transparent;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.explore-button:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 500px;
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/* Styling for the Upload Button */
+#uploadBtn {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#uploadBtn:hover {
+    background-color: #45a049;
+}
+
+.upload-section {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #193330; /* Keep consistent with your overall theme */
+    color: white;
+}
+
+.upload-container {
+    background-color: #79be70; /* Matches your footer color */
+    color: #193330;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    max-width: 600px;
+    margin: auto;
+    transition: background-color 0.3s ease;
+}
+
+.upload-box {
+    border: 2px dashed #304745;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    background-color: #FFFDD0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 200px; /* Add a fixed height to help center the content */
+}
+
+.upload-box img {
+    width: 100px;
+    height: 100px;
+    opacity: 0.7;
+}
+
+.upload-box label {
+    cursor: pointer;
+    color: #023020; /* Light green color matching hover effects */
+    text-decoration: underline;
+    margin-top: 10px; /* Add some space between the image and the label */
+}
+
+.upload-box input[type="file"] {
+    display: none;
+}
+
+.upload-info {
+    margin-top: 10px;
+    color: #999;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttons button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.cancel-button {
+    background-color: #193330;
+    color: white;
+}
+
+.cancel-button:hover {
+    background-color: #a5be10;
+    color: #193330;
+    margin-right: 10px;
+}
+
+.attach-button {
+    background-color: #193330; /* Light green color */
+    color: white;
+}
+
+.attach-button:hover {
+    background-color: #a5be10;
+    color: #193330;
+}
+
+.attach-button:disabled{
+    cursor: not-allowed;
+    background: #ccc;
+}
+
+/* Footer General Styles */
+footer {
+    background-color: #79be70; /* Match the green color in your screenshot */
+    color: #172e2b;
+    padding: 40px 20px;
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+  
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+    margin: 20px;
+}
+
+.footer-section h4 {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.footer-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+    color:#193330;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+    color: #5e706e; /* Slightly lighter green for hover effect */
+}
+
+#footer-logo {
+    width: 100px; /* Adjust the size to fit your design */
+    margin-bottom: 20px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.social-icons {
+    margin-top: 20px;
+}
+
+.social-icons a {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.social-icons img {
+    width: 24px; /* Adjust size as necessary */
+    height: 24px;
+    filter: invert(100%); /* This ensures the icon colors match the footer theme */
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.2); /* Thin white line at the top of the bottom footer section */
+    margin-top: 20px;
+    font-size: 12px;
+    color: #193330;
+}
