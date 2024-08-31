@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/home.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/team.css')}}">
+    <link href="https://fonts.cdnfonts.com/css/the-amsterdam" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sevillana&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
+    <title>Team</title>
+</head>
+<body>
+
+<!--header section-->
+
+    <header>
+        <div class="logo">
+            <a href="#" id="logo-name">Kheti.Ai</a>
+        </div> 
+        <nav>
+            <ul>
+                {% for key, value in navbarItems.items() %}
+                <li><a href="{{value.url}}">{{key}}</a></li>
+                {% endfor %}
+            </ul>
+        </nav>
+    </header>
+
+<!--Team section-->
+
+<div class="team-section">
+    <h2>Meet The Teams</h2>
+    <div class="team-members">
+        {% for member in team %}
+        <div class="team-member">
+            <img src="{{ member.image_url }}" alt="{{ member.name }}">
+            <h3>{{ member.name }}</h3>
+            <p class="title">{{ member.title }}</p>
+            <p class="description">{{ member.description }}</p>
+            <div class="social-links">
+                {% if member.social_links.facebook %}
+
+                <a href="{{ member.social_links.facebook }}"><img src="{{url_for('static', filename='img/icon/color/facebook-icon.png')}}" alt="Facebook" class="fab fa-facebook"></a>
+                {% endif %}
+                {% if member.social_links.twitter %}
+                <a href="{{ member.social_links.facebook }}"><img src="{{url_for('static', filename='img/icon/color/twitter-icon.png')}}" alt="Twitter" class="fab fa-twitter"></a>
+                {% endif %}
+                {% if member.social_links.instagram %}
+                <a href="{{ member.social_links.twitter }}"><img src="{{url_for('static', filename='img/icon/color/instagram-icon.png')}}" alt="Instagram" class="fab fa-instagram"></a>
+                {% endif %}
+                {% if member.social_links.linkedin %}
+                <a href="{{ member.social_links.linkedin }}"><img src="{{url_for('static', filename='img/icon/color/linkedin-icon.png')}}" alt="linkedin" class="fab fa-linkedin" class="fab fa-linkedin"></a>
+                {% endif %}
+                {% if member.social_links.github %}
+                <a href="{{ member.social_links.github }}"><img src="{{url_for('static', filename='img/icon/color/github-icon.png')}}" alt="github" class="fab fa-github" class="fab fa-github" class="fab fa-github"></a>
+                {% endif %}
+                {% if member.social_links.email %}
+                <a href="{{ member.social_links.email }}"><img src="{{url_for('static', filename='img/icon/color/email-icon.png')}}" alt="github" class="fab fa-github" class="fab fa-email" class="fab fa-email"></a>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<!--footer section-->
+<footer>
+    <div class="footer-container">
+        <div class="footer-section logo">
+            <img src="{{url_for('static', filename='img/logo/3.png')}}" alt="Logo" id="footer-logo">
+            
+        </div>
+        <div class="footer-section organization">
+            <h4>Organization</h4>
+            <ul>
+                {% for item in footerOrganizationItems %}
+                <li><a href={{item.url}}>{{item}}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="footer-section resources">
+            <h4>Resources</h4>
+            <ul>
+                {% for item in footerResourcesItems %}
+                <li><a href={{item.url}}>{{item}}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="footer-section legal">
+            <h4>Legal</h4>
+            <ul>
+                {% for item in footerLegalItems %}
+                <li><a href={{item.url}}>{{item}}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="footer-section contact">
+            <h4>Contact us</h4>
+            <ul>
+                {% for item in footerContactUsItems %}
+                <li><a href={{item.url}}>{{item}}</a></li>
+                {% endfor %}
+            </ul>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/"><img src="{{url_for('static', filename='img/icon/Black/facebook-icon.png')}}" alt="Facebook"></a>
+                <a href="https://www.instagram.com/accounts/login/"><img src="{{url_for('static', filename='img/icon/Black/instagram-icon.png')}}" alt="Instagram"></a>
+                <a href="https://web.telegram.org/a/"><img src="{{url_for('static', filename='img/icon/Black/telegram-icon.png')}}" alt="Telegram"></a>
+                <a href="https://x.com/login?mx=2"><img src="{{url_for('static', filename='img/icon/Black/twitter-icon.png')}}" alt="Twitter"></a>
+                <a href="https://web.whatsapp.com/"><img src="{{url_for('static', filename='img/icon/Black/whatsapp-icon.png')}}" alt="Whatsapp"></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2014-2024 Kheti.Ai™</p>
+    </div>
+</footer>
+
+</body>
+</html>
