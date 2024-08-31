@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/contact.css')}}">
+    
+    <link href="https://fonts.cdnfonts.com/css/the-amsterdam" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sevillana&display=swap" rel="stylesheet">
+    <title>Conatct</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="#" id="logo-name">Kheti.Ai</a>
+        </div> 
+        <nav>
+            <ul>
+                {% for key, value in navbarItems.items() %}
+                <li><a href="{{value.url}}">{{key}}</a></li>
+                {% endfor %}
+            </ul>
+        </nav>
+    </header>
+<!--Contact Section-->
+
+<div class="contact-section">
+    <div class="contact-form-container">
+    <h2>SEND US A MESSAGE</h2>
+    <form>
+        <input type="text" name="fullname" placeholder="Full Name" required>
+        <input type="email" name="email" placeholder="E-mail" required>
+        <input type="tel" name="phone" placeholder="Phone" required>
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit" class="send-button">SEND</button>
+    </form>
+    </div>
+</div>
+
+
+
+
+<!--footer Section-->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section logo">
+                <img src="{{url_for('static', filename='img/logo/3.png')}}" alt="Logo" id="footer-logo">
+                
+            </div>
+            <div class="footer-section organization">
+                <h4>Organization</h4>
+                <ul>
+                    {% for item in footerOrganizationItems %}
+                    <li><a href={{item.url}}>{{item}}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="footer-section resources">
+                <h4>Resources</h4>
+                <ul>
+                    {% for item in footerResourcesItems %}
+                    <li><a href={{item.url}}>{{item}}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="footer-section legal">
+                <h4>Legal</h4>
+                <ul>
+                    {% for item in footerLegalItems %}
+                    <li><a href={{item.url}}>{{item}}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="footer-section contact">
+                <h4>Contact us</h4>
+                <ul>
+                    {% for item in footerContactUsItems %}
+                    <li><a href={{item.url}}>{{item}}</a></li>
+                    {% endfor %}
+                </ul>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/"><img src="{{url_for('static', filename='img/icon/Black/facebook-icon.png')}}" alt="Facebook"></a>
+                    <a href="https://www.instagram.com/accounts/login/"><img src="{{url_for('static', filename='img/icon/Black/instagram-icon.png')}}" alt="Instagram"></a>
+                    <a href="https://web.telegram.org/a/"><img src="{{url_for('static', filename='img/icon/Black/telegram-icon.png')}}" alt="Telegram"></a>
+                    <a href="https://x.com/login?mx=2"><img src="{{url_for('static', filename='img/icon/Black/twitter-icon.png')}}" alt="Twitter"></a>
+                    <a href="https://web.whatsapp.com/"><img src="{{url_for('static', filename='img/icon/Black/whatsapp-icon.png')}}" alt="Whatsapp"></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2014-2024 Kheti.Ai™</p>
+        </div>
+    </footer>
+    
+</body>
+</html>
