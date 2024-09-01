@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ayurdava</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="static/images/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Dosis&family=Hammersmith+One&display=swap');
+    * {
+        padding: 0px;
+        margin: 0px;
+        font-family: 'Dosis', sans-serif;
+    }
+
+    body{
+        height: 100%;
+        width: 100%;
+        
+        background: #F3DFD6;
+    }
+    .full{
+        display: flex;
+        width: 100%;
+        height: 100vh;
+        
+    }
+    .left{
+        width: 60%;
+        height: 100%;
+        display: flex;
+        overflow:auto;
+
+    }
+    .details{
+        color: #0B3A2E;
+        font-size: 25px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        margin-top: 20px;
+        
+        text-align: center;
+        margin: 50px;
+    }
+    .imagec{
+        width: 70%;
+        height: 60%;
+        padding: 20px;
+    }
+    .right{
+        width: 30%;
+        height: 100%;
+        flex-shrink: 0;
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.79);
+        backdrop-filter: blur(17px);
+        margin-left: 40px;
+        
+    }
+    .desc{
+        display: flex;
+        justify-content: space-between;
+    }
+    .desc1{
+        display: flex;
+        width: 30%;
+        padding: 8px 14px;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        border-radius: 30%;
+        /* border: 2px solid #000; */
+        /* background: #FFF; */
+        margin: 5px;
+        color: #0B3A2E;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 100;
+        line-height: 133.023%; /* 53.209px */
+        text-transform: capitalize;
+    }
+    .back{
+        display: flex;
+        width: 30%;
+        height: 36px;
+        padding: 12px 12px;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        flex-shrink: 0;
+        border-radius: 39px;
+        border: 1px solid #188D07;
+        background: #188D07;
+        margin: 20px;
+
+    }
+    .back a{
+        color: #FFF;
+        font-size: 19px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 24px; /* 126.316% */
+        text-transform: uppercase;
+        text-decoration: none;
+    }
+    .details2{
+        color: #4F4F4F;
+        font-size: 20px;
+        font-style: normal;
+        /* font-weight: 300; */
+        line-height: 133.023%; /* 30.595px */
+        /* text-transform: uppercase; */
+        padding: 30px;
+        overflow: auto;
+    }
+    .details2 strong{
+        color: green;
+        font-weight: 700;
+    }
+    @media screen and (max-width: 768px){
+        
+    .full{
+        display: flex;
+        flex-direction: column;
+        
+    }
+    .left{
+ 
+        display: flex;
+        width: 90%;
+        height: 500px;
+        flex-shrink: 0;
+        margin: 10px;
+    }
+    .details{
+        color: #0B3A2E;
+        font-size: 25px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        margin-top: 20px;
+        
+        text-align: center;
+        margin: 50px;
+    }
+    .imagec{
+        width: 50%;
+        padding: 20px;
+    }
+    .right{
+        width: 90%;
+        height: 100%;
+        flex-shrink: 0;
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.79);
+        backdrop-filter: blur(17px);
+        margin: 10px;
+        
+    }
+    .desc{
+        display: flex;
+        justify-content: space-between;
+    }
+    .desc1{
+        display: flex;
+        width: 30%;
+        padding: 8px 14px;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        border-radius: 30%;
+        /* border: 2px solid #000; */
+        /* background: #FFF; */
+        margin: 5px;
+        color: #0B3A2E;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 100;
+        line-height: 133.023%; /* 53.209px */
+        text-transform: capitalize;
+    }
+    }
+</style>
+<body>
+
+    <div class="details">
+        <Strong style="color: green;">Leaf Detected:</Strong>
+        {{ detected_class }}
+    </div>
+
+    <div class="full">
+
+        <div class="left">
+           <div class="imagec"><img src="/get_image" alt="Detected Objects"></div> 
+        </div>
+
+        <div class="right" data-aos="flip-left">
+            <div class="desc">
+                <div class="desc1" data-aos="fade-right">
+                    <img src="static\images\Desc leaf.svg" alt="" height="50px">
+                    Description
+                </div>
+                <div class="back">
+                   <a href="/landing" data-aos="fade-right"> Back</a>
+                </div>
+            </div>
+            <hr>
+            <div class="details2" data-aos="fade-right">
+                {{ details | safe }}
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init(
+      {
+         offset: 100,
+         duration: 1000,
+ 
+      });
+    </script>
+    <!-- <h2>Medicinal Properties</h2>
+    -->
+</body>
+</html>
