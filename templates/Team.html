@@ -39,7 +39,7 @@
     <div class="team-members">
         {% for member in team %}
         <div class="team-member">
-            <img src="{{ member.image_url }}" alt="{{ member.name }}">
+            <img src="{{ url_for('static', filename="img/team/"+member.image_url) }}" alt="{{ member.name }}">
             <h3>{{ member.name }}</h3>
             <p class="title">{{ member.title }}</p>
             <p class="description">{{ member.description }}</p>
@@ -79,32 +79,32 @@
         <div class="footer-section organization">
             <h4>Organization</h4>
             <ul>
-                {% for item in footerOrganizationItems %}
-                <li><a href={{item.url}}>{{item}}</a></li>
+                {% for key,value  in footerOrganizationItems.items() %}
+                <li><a href={{value.url}}>{{key}}</a></li>
                 {% endfor %}
             </ul>
         </div>
         <div class="footer-section resources">
             <h4>Resources</h4>
             <ul>
-                {% for item in footerResourcesItems %}
-                <li><a href={{item.url}}>{{item}}</a></li>
+                {% for key,value  in footerResourcesItems.items() %}
+                <li><a href={{value.url}}>{{key}}</a></li>
                 {% endfor %}
             </ul>
         </div>
         <div class="footer-section legal">
             <h4>Legal</h4>
             <ul>
-                {% for item in footerLegalItems %}
-                <li><a href={{item.url}}>{{item}}</a></li>
+                {% for key,value  in footerLegalItems.items() %}
+                <li><a href={{value.url}}>{{key}}</a></li>
                 {% endfor %}
             </ul>
         </div>
         <div class="footer-section contact">
             <h4>Contact us</h4>
             <ul>
-                {% for item in footerContactUsItems %}
-                <li><a href={{item.url}}>{{item}}</a></li>
+                {% for key,value in footerContactUsItems.items() %}
+                <li><a href={{value.url}}>{{key}}</a></li>
                 {% endfor %}
             </ul>
             <div class="social-icons">
