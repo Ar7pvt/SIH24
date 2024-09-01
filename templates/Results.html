@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/result.css')}}">
+    <link href="https://fonts.cdnfonts.com/css/the-amsterdam" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sevillana&display=swap" rel="stylesheet">
+    <title>Result</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="#" id="logo-name">Kheti.Ai</a>
+        </div> 
+        <nav>
+            <ul>
+                {% for key, value in navbarItems.items() %}
+                <li><a href="{{value.url}}">{{key}}</a></li>
+                {% endfor %}
+            </ul>
+        </nav>
+    </header>
+
+
+    <section class="result-section">
+        <div class="details">
+            <Strong style="color: #fffafa;">Leaf Detected:</Strong>
+            <p>{{ detected_class }}</p>
+        </div>
+        <div class="result-container">
+            <div class="result-image">
+                <img src="/get_image" alt="Detected Objects" />
+            </div>
+            <div class="result-description">
+                <h3>Description</h3>
+                <div class="details2" data-aos="fade-right">
+                   <p>{{ details | safe }}</p>
+                </div>
+            </div>
+            <button onclick="history.back()" class="back-button">BACK</button>
+        </div>
+    </section>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  AOS.init(
+  {
+     offset: 100,
+     duration: 1000,
+
+  });
+</script>
+
+
+    <!-- footer Section -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section logo">
+                <img src="{{url_for('static', filename='img/logo/3.png')}}" alt="Logo" id="footer-logo">
+                
+            </div>
+            <div class="footer-section organization">
+                <h4>Organization</h4>
+                <ul>
+                    {% for key,value  in footerOrganizationItems.items() %}
+                    <li><a href={{value.url}}>{{key}}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="footer-section resources">
+                <h4>Resources</h4>
+                <ul>
+                    {% for key,value  in footerResourcesItems.items() %}
+                    <li><a href={{value.url}}>{{key}}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="footer-section legal">
+                <h4>Legal</h4>
+                <ul>
+                    {% for key,value  in footerLegalItems.items() %}
+                    <li><a href={{value.url}}>{{key}}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="footer-section contact">
+                <h4>Contact us</h4>
+                <ul>
+                    {% for key,value in footerContactUsItems.items() %}
+                    <li><a href={{value.url}}>{{key}}</a></li>
+                    {% endfor %}
+                </ul>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/"><img src="{{url_for('static', filename='img/icon/Black/facebook-icon.png')}}" alt="Facebook"></a>
+                    <a href="https://www.instagram.com/accounts/login/"><img src="{{url_for('static', filename='img/icon/Black/instagram-icon.png')}}" alt="Instagram"></a>
+                    <a href="https://web.telegram.org/a/"><img src="{{url_for('static', filename='img/icon/Black/telegram-icon.png')}}" alt="Telegram"></a>
+                    <a href="https://x.com/login?mx=2"><img src="{{url_for('static', filename='img/icon/Black/twitter-icon.png')}}" alt="Twitter"></a>
+                    <a href="https://web.whatsapp.com/"><img src="{{url_for('static', filename='img/icon/Black/whatsapp-icon.png')}}" alt="Whatsapp"></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2014-2024 Kheti.Ai™</p>
+        </div>
+    </footer>
+       
+</body>
+
+<script>
+    // Enable the Attach button only if files are selected
+    document.getElementById('file-upload').addEventListener('change', function() {
+        document.querySelector('.attach-button').disabled = !this.files.length;
+    });
+
+    // Optional: Confirm before canceling the upload
+    document.querySelector('.cancel-button').addEventListener('click', function(e) {
+        if (!confirm("Are you sure you want to cancel?")) {
+            e.preventDefault();
+        }
+    });
+</script>
+
+</html>
