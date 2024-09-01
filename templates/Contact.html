@@ -43,56 +43,56 @@
 
 
 <!--footer Section-->
-    <footer>
-        <div class="footer-container">
-            <div class="footer-section logo">
-                <img src="{{url_for('static', filename='img/logo/3.png')}}" alt="Logo" id="footer-logo">
-                
-            </div>
-            <div class="footer-section organization">
-                <h4>Organization</h4>
-                <ul>
-                    {% for item in footerOrganizationItems %}
-                    <li><a href={{item.url}}>{{item}}</a></li>
-                    {% endfor %}
-                </ul>
-            </div>
-            <div class="footer-section resources">
-                <h4>Resources</h4>
-                <ul>
-                    {% for item in footerResourcesItems %}
-                    <li><a href={{item.url}}>{{item}}</a></li>
-                    {% endfor %}
-                </ul>
-            </div>
-            <div class="footer-section legal">
-                <h4>Legal</h4>
-                <ul>
-                    {% for item in footerLegalItems %}
-                    <li><a href={{item.url}}>{{item}}</a></li>
-                    {% endfor %}
-                </ul>
-            </div>
-            <div class="footer-section contact">
-                <h4>Contact us</h4>
-                <ul>
-                    {% for item in footerContactUsItems %}
-                    <li><a href={{item.url}}>{{item}}</a></li>
-                    {% endfor %}
-                </ul>
-                <div class="social-icons">
-                    <a href="https://www.facebook.com/"><img src="{{url_for('static', filename='img/icon/Black/facebook-icon.png')}}" alt="Facebook"></a>
-                    <a href="https://www.instagram.com/accounts/login/"><img src="{{url_for('static', filename='img/icon/Black/instagram-icon.png')}}" alt="Instagram"></a>
-                    <a href="https://web.telegram.org/a/"><img src="{{url_for('static', filename='img/icon/Black/telegram-icon.png')}}" alt="Telegram"></a>
-                    <a href="https://x.com/login?mx=2"><img src="{{url_for('static', filename='img/icon/Black/twitter-icon.png')}}" alt="Twitter"></a>
-                    <a href="https://web.whatsapp.com/"><img src="{{url_for('static', filename='img/icon/Black/whatsapp-icon.png')}}" alt="Whatsapp"></a>
-                </div>
+<footer>
+    <div class="footer-container">
+        <div class="footer-section logo">
+            <img src="{{url_for('static', filename='img/logo/3.png')}}" alt="Logo" id="footer-logo">
+            
+        </div>
+        <div class="footer-section organization">
+            <h4>Organization</h4>
+            <ul>
+                {% for key,value  in footerOrganizationItems.items() %}
+                <li><a href={{value.url}}>{{key}}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="footer-section resources">
+            <h4>Resources</h4>
+            <ul>
+                {% for key,value  in footerResourcesItems.items() %}
+                <li><a href={{value.url}}>{{key}}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="footer-section legal">
+            <h4>Legal</h4>
+            <ul>
+                {% for key,value  in footerLegalItems.items() %}
+                <li><a href={{value.url}}>{{key}}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="footer-section contact">
+            <h4>Contact us</h4>
+            <ul>
+                {% for key,value in footerContactUsItems.items() %}
+                <li><a href={{value.url}}>{{key}}</a></li>
+                {% endfor %}
+            </ul>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/"><img src="{{url_for('static', filename='img/icon/Black/facebook-icon.png')}}" alt="Facebook"></a>
+                <a href="https://www.instagram.com/accounts/login/"><img src="{{url_for('static', filename='img/icon/Black/instagram-icon.png')}}" alt="Instagram"></a>
+                <a href="https://web.telegram.org/a/"><img src="{{url_for('static', filename='img/icon/Black/telegram-icon.png')}}" alt="Telegram"></a>
+                <a href="https://x.com/login?mx=2"><img src="{{url_for('static', filename='img/icon/Black/twitter-icon.png')}}" alt="Twitter"></a>
+                <a href="https://web.whatsapp.com/"><img src="{{url_for('static', filename='img/icon/Black/whatsapp-icon.png')}}" alt="Whatsapp"></a>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2014-2024 Kheti.Ai™</p>
-        </div>
-    </footer>
-    
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2014-2024 Kheti.Ai™</p>
+    </div>
+</footer>
+
 </body>
 </html>
