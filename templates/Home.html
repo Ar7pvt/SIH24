@@ -11,6 +11,7 @@
     <title>Kheti.Ai</title>
 </head>
 <body>
+    <script src="{{ url_for('static', filename='script1.js')}}"></script>
     <header>
         <div class="logo">
             <a href="#" id="logo-name">Kheti.Ai</a>
@@ -27,33 +28,43 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Smart Farming Starts Here</h1>
+            <h1>AI-Driven Crop Protector</h1>
             <p>Maximize your harvest with our state-of-the-art crop disease detection software. By identifying potential threats early, you can take swift action to protect your crops and ensure a healthier, more bountiful yield. Our technology empowers you to minimize risks and make data-driven decisions, so you can focus on growing your farm's success. Invest in precision, and watch your harvest thrive.</p>
-            <button class="explore-button">read more</button>
+            <span id="extra-content" style="display: none;">
+Our software leverages cutting-edge AI algorithms to continuously monitor and accurately detect a wide range of crop diseases. With real-time notifications and actionable insights, it enables you to promptly address any issues, minimizing crop loss and optimizing the use of resources. This proactive approach ensures healthier crops, higher yields, and more efficient farming practices, allowing you to stay ahead of potential threats and make informed decisions with confidence.
+              </span>
+            </p>
+            <button class="explore-button" onclick="toggleReadMore()">Read more</button>
         </div>
     </section>
 
 
-    <!-- upload Section -->
 
-    <section class="upload-section">
-        <div class="upload-container">
-            <h3>Upload and Attach Files</h3>
-            <p>Upload and attach files to this project.</p>
-            <div class="upload-box">
-                <img src="{{url_for('static', filename='img/icon/Black/cloud-computing.png')}}" alt="cloud logo">
-                <input type="file" id="file-upload" multiple>
-                <label for="file-upload">Click to upload or drag and drop</label>
+<!-- upload Section-->
+
+<section class="upload-section">
+    <div class="upload-container">
+        <h3>Upload and Attach Files</h3>
+        <p>Upload and attach files to this project.</p>
+        <div class="upload-box">
+            <img src="{{url_for('static', filename='img/icon/Black/cloud-computing.png')}}" alt="cloud logo">
+            <form method="POST" action="/landing" enctype="multipart/form-data">
+                <input type="file" id="file-upload" name="image_file">
+                <label for="file-upload">Click to upload </label>
                 <div class="upload-info">
                     <span>Maximum file size 50 MB.</span>
                 </div>
-            </div>            
+                <button type="submit" class="attach-button">Upload</button>
+            </form>
             <div class="buttons">
-                <button class="cancel-button">Cancel</button>
-                <button class="attach-button">Attach files</button>
+               
             </div>
         </div>
-    </section>
+       
+    </div>
+</section>
+
+<!-- footer Section-->
 
     <footer>
         <div class="footer-container">
@@ -64,32 +75,32 @@
             <div class="footer-section organization">
                 <h4>Organization</h4>
                 <ul>
-                    {% for item in footerOrganizationItems %}
-                    <li><a href={{item.url}}>{{item}}</a></li>
+                    {% for key,value  in footerOrganizationItems.items() %}
+                    <li><a href={{value.url}}>{{key}}</a></li>
                     {% endfor %}
                 </ul>
             </div>
             <div class="footer-section resources">
                 <h4>Resources</h4>
                 <ul>
-                    {% for item in footerResourcesItems %}
-                    <li><a href={{item.url}}>{{item}}</a></li>
+                    {% for key,value  in footerResourcesItems.items() %}
+                    <li><a href={{value.url}}>{{key}}</a></li>
                     {% endfor %}
                 </ul>
             </div>
             <div class="footer-section legal">
                 <h4>Legal</h4>
                 <ul>
-                    {% for item in footerLegalItems %}
-                    <li><a href={{item.url}}>{{item}}</a></li>
+                    {% for key,value  in footerLegalItems.items() %}
+                    <li><a href={{value.url}}>{{key}}</a></li>
                     {% endfor %}
                 </ul>
             </div>
             <div class="footer-section contact">
                 <h4>Contact us</h4>
                 <ul>
-                    {% for item in footerContactUsItems %}
-                    <li><a href={{item.url}}>{{item}}</a></li>
+                    {% for key,value in footerContactUsItems.items() %}
+                    <li><a href={{value.url}}>{{key}}</a></li>
                     {% endfor %}
                 </ul>
                 <div class="social-icons">
@@ -107,19 +118,4 @@
     </footer>
     
 </body>
-
-<script>
-    // Enable the Attach button only if files are selected
-    document.getElementById('file-upload').addEventListener('change', function() {
-        document.querySelector('.attach-button').disabled = !this.files.length;
-    });
-
-    // Optional: Confirm before canceling the upload
-    document.querySelector('.cancel-button').addEventListener('click', function(e) {
-        if (!confirm("Are you sure you want to cancel?")) {
-            e.preventDefault();
-        }
-    });
-</script>
-
 </html>
