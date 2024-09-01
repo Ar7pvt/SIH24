@@ -148,6 +148,11 @@ nav ul li a:hover {
     margin-bottom: 40px;
     line-height: 1.6;
 }
+#extra-content {
+    font-size: 1rem;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
 
 .explore-button {
     padding: 10px 20px;
@@ -164,155 +169,6 @@ nav ul li a:hover {
 .explore-button:hover {
     background-color: #fff;
     color: #000;
-}
-
-
-/* The Modal (background) */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-/* Modal Content/Box */
-.modal-content {
-    background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
-    max-width: 500px;
-}
-
-/* The Close Button */
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-
-/* Styling for the Upload Button */
-#uploadBtn {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-#uploadBtn:hover {
-    background-color: #45a049;
-}
-
-.upload-section {
-    padding: 40px 20px;
-    text-align: center;
-    background-color: #193330; /* Keep consistent with your overall theme */
-    color: white;
-}
-
-.upload-container {
-    background-color: #79be70; /* Matches your footer color */
-    color: #193330;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    max-width: 600px;
-    margin: auto;
-    transition: background-color 0.3s ease;
-}
-
-.upload-box {
-    border: 2px dashed #304745;
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    background-color: #FFFDD0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 200px; /* Add a fixed height to help center the content */
-}
-
-.upload-box img {
-    width: 100px;
-    height: 100px;
-    opacity: 0.7;
-}
-
-.upload-box label {
-    cursor: pointer;
-    color: #023020; /* Light green color matching hover effects */
-    text-decoration: underline;
-    margin-top: 10px; /* Add some space between the image and the label */
-}
-
-.upload-box input[type="file"] {
-    display: none;
-}
-
-.upload-info {
-    margin-top: 10px;
-    color: #999;
-}
-
-.buttons {
-    display: flex;
-    justify-content: space-between;
-}
-
-.buttons button {
-    padding: 10px 20px;
-    font-size: 1rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.cancel-button {
-    background-color: #193330;
-    color: white;
-}
-
-.cancel-button:hover {
-    background-color: #a5be10;
-    color: #193330;
-    margin-right: 10px;
-}
-
-.attach-button {
-    background-color: #193330; /* Light green color */
-    color: white;
-}
-
-.attach-button:hover {
-    background-color: #a5be10;
-    color: #193330;
-}
-
-.attach-button:disabled{
-    cursor: not-allowed;
-    background: #ccc;
 }
 
 /* Footer General Styles */
@@ -391,4 +247,128 @@ footer {
     margin-top: 20px;
     font-size: 12px;
     color: #193330;
+}
+
+
+
+
+
+/* Upload Button Styling */
+#uploadBtn {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#uploadBtn:hover {
+    background-color: #45a049;
+}
+
+/* Upload Section Styling */
+.upload-section {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #193330; /* Matches the overall theme */
+    color: white;
+}
+
+/* Container Styling */
+.upload-container {
+    background-color: #79be70; /* Matches the footer color */
+    color: #193330;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    max-width: 600px;
+    margin: auto;
+    transition: background-color 0.3s ease;
+}
+
+/* Upload Box Styling */
+.upload-box {
+    border: 2px dashed #304745;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    background-color: #FFFDD0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 200px; /* Fixed height to help center content */
+}
+
+.upload-box img {
+    width: 100px;
+    height: 100px;
+    opacity: 0.7;
+}
+
+/* Label and Input Styling */
+.upload-box label {
+    cursor: pointer;
+    color: #023020; /* Light green color matching hover effects */
+    text-decoration: underline;
+    margin-top: 10px; /* Space between image and label */
+}
+
+.upload-box input[type="file"] {
+    display: none;
+}
+
+/* Upload Info Styling */
+.upload-info {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #999;font-size: x-small;
+}
+
+/* Button Group Styling */
+.buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Individual Button Styling */
+.buttons button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Cancel Button Styling */
+.cancel-button {
+    background-color: #193330;
+    color: white;
+}
+
+.cancel-button:hover {
+    background-color: #a5be10;
+    color: #193330;
+    margin-right: 10px;
+}
+
+/* Attach Button Styling */
+.attach-button {
+    background-color: #193330; /* Light green color */
+    color: white;
+}
+
+.attach-button:hover {
+    background-color: #a5be10;
+    color: #193330;
+}
+
+/* Disabled Attach Button Styling */
+.attach-button:disabled {
+    cursor: not-allowed;
+    background: #ccc;
 }
