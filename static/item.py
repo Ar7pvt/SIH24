@@ -59,11 +59,11 @@ team = [
             "image_url": "alok.jpeg",
             "social_links": {
                 "facebook": "https://www.facebook.com/",
-                "twitter": "https://x.com/?lang=en-in",
+                "twitter": "https://x.com/home?lang=en",
                 "instagram": "https://www.instagram.com/accounts/login/",
                 "linkedin": "https://www.linkedin.com/in/alok-raj-4a6947202/",
-                "github": "https://github.com/login",
-                "email": "#",
+                "github": "https://github.com/Ar7pvt",
+                "email": "mailto:alokrajgrd8@gmail.com.com",
             }
         },
         {
